@@ -5,29 +5,47 @@
  * @author (your name)
  * @version (a version number or a date)
  */
+import java.util.Random;
+import java.util.Scanner;
 public class Main
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    
+ 
 
-    /**
-     * Constructor for objects of class Main
-     */
-    public Main()
-    {
-        // initialise instance variables
-        x = 0;
-    }
+    public static void Main(String args[]) 
+    {    
+     Random randomNumber = new Random();
+     int rando = randomNumber.nextInt(10) + 1;
+     Scanner scanner = new Scanner(System.in);
+     int guesses = 0;
+     int input = -1;
+     
+     System.out.println("Welcome to the guessing game! Guess between 1-10 to win.");
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+       while(true) {
+           int previousGuess = input;
+          input = scanner.nextInt();
+           
+        
+           if(input == rando) {   
+               System.out.println("You are correct." + "You took " + guesses + " guesses");
+                break;
+                }
+           else if(input >rando) {
+           guesses = (input == previousGuess) ? guesses : (guesses + 1);
+           System.out.println("You are too high!" + "You took " + guesses + " guesses");
+           
+         
+        } else if (input < rando) {
+            guesses = (input == previousGuess) ? guesses : (guesses + 1);
+            System.out.println("You are too low!" + "You took " + guesses + " guesses");
+            }
+            
+        } 
+    } 
 }
+
+
+ 
+
+
